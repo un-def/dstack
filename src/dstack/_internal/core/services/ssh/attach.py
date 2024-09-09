@@ -28,7 +28,7 @@ class SSHAttach:
     @classmethod
     def reuse_ports_lock(cls, run_name: str) -> Optional[PortsLock]:
         if not get_ssh_client_info().supports_control_socket:
-            raise SSHError("Unsupported SSH client")
+            return None
         control_sock_path = normalize_path(cls.get_control_sock_path(run_name))
         filter_prefix: str
         output: bytes

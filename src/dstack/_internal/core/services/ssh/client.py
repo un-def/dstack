@@ -142,6 +142,4 @@ def get_ssh_client_info() -> SSHClientInfo:
             msg = "SSH client not found."
         raise SSHError(msg)
     _ssh_client_info = inspect_ssh_client(path)
-    if _ssh_client_info.for_windows:
-        raise SSHError("OpenSSH for Windows is not supported, install Git for Windows.")
     return _ssh_client_info
